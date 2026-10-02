@@ -19,7 +19,7 @@ module "cloud_engineering_file" {
 
     Infrastructure as Code Lab
 
-    Environment: Local Linux
+    Environment: ${var.environment}
     Tool: Terraform
     Purpose: Learning Infrastructure as Code and Cloud Governance
   EOT
@@ -35,7 +35,7 @@ module "cloud_governance_file" {
 
     Cloud Governance Lab
 
-    Environment: Local Linux
+    Environment: ${var.environment}
     Tool: Terraform
     Purpose: Learning reusable infrastructure and governance controls
   EOT

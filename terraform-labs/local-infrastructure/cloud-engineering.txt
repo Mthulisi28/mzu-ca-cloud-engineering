@@ -2,6 +2,6 @@ MZ-UCA Cloud Engineering
 
 Infrastructure as Code Lab
 
-Environment: Local Linux
+Environment: staging
 Tool: Terraform
 Purpose: Learning Infrastructure as Code and Cloud Governance
