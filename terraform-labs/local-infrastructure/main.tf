@@ -9,7 +9,9 @@ terraform {
 
 provider "local" {}
 
-resource "local_file" "cloud_engineering" {
+module "cloud_engineering_file" {
+  source = "./modules/local-file"
+
   filename = "${path.module}/cloud-engineering.txt"
 
   content = <<-EOT
@@ -20,5 +22,21 @@ resource "local_file" "cloud_engineering" {
     Environment: Local Linux
     Tool: Terraform
     Purpose: Learning Infrastructure as Code and Cloud Governance
+  EOT
+}
+
+module "cloud_governance_file" {
+  source = "./modules/local-file"
+
+  filename = "${path.module}/cloud-governance.txt"
+
+  content = <<-EOT
+    MZ-UCA Cloud Engineering
+
+    Cloud Governance Lab
+
+    Environment: Local Linux
+    Tool: Terraform
+    Purpose: Learning reusable infrastructure and governance controls
   EOT
 }
