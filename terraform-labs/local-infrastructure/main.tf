@@ -1,18 +1,7 @@
-terraform {
-  required_providers {
-    local = {
-      source  = "hashicorp/local"
-      version = "~> 2.5"
-    }
-  }
-}
-
-provider "local" {}
-
 module "cloud_engineering_file" {
   source = "./modules/local-file"
 
-  filename = "${path.module}/cloud-engineering.txt"
+  filename = "${path.module}/cloud-engineering-${var.environment}.txt"
 
   content = <<-EOT
     MZ-UCA Cloud Engineering
@@ -28,7 +17,7 @@ module "cloud_engineering_file" {
 module "cloud_governance_file" {
   source = "./modules/local-file"
 
-  filename = "${path.module}/cloud-governance.txt"
+  filename = "${path.module}/cloud-governance-${var.environment}.txt"
 
   content = <<-EOT
     MZ-UCA Cloud Engineering
