@@ -10,7 +10,7 @@ module "cloud_engineering_file" {
 
     Environment: ${var.environment}
     Tool: Terraform
-    Purpose: Learning Infrastructure as Code and Cloud Governance
+    Purpose: Learning Infrastructure as Code, Cloud Governance, and CI/CD Automation
   EOT
 }
 
