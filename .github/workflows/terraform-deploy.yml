@@ -1,0 +1,32 @@
+name: Terraform Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform-deploy:
+    name: Terraform Deployment
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: terraform-labs/local-infrastructure
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init -input=false
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -input=false -var-file="dev.tfvars"
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -input=false -var-file="dev.tfvars"
